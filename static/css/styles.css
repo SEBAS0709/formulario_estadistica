@@ -1,0 +1,303 @@
+:root {
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --surface-alt: #f0f4fb;
+  --text: #1f2937;
+  --muted: #4b5563;
+  --primary: #2563eb;
+  --primary-soft: rgba(37, 99, 235, 0.12);
+  --border: #e5e7eb;
+  --shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --surface: #111827;
+  --surface-alt: #1f2937;
+  --text: #f8fafc;
+  --muted: #cbd5e1;
+  --primary: #60a5fa;
+  --primary-soft: rgba(96, 165, 250, 0.14);
+  --border: #334155;
+  --shadow: 0 24px 80px rgba(15, 23, 42, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, system-ui, sans-serif;
+  background: linear-gradient(180deg, var(--bg) 0%, #e2e8f0 100%);
+  color: var(--text);
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 24px;
+  padding: 24px;
+}
+
+.sidebar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  min-height: calc(100vh - 48px);
+}
+
+.brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.sidebar-toggle {
+  margin-bottom: 22px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  cursor: pointer;
+  font-weight: 600;
+  text-align: center;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  color: var(--text);
+  outline: none;
+}
+
+.sidebar-section {
+  margin-top: 24px;
+}
+
+.sidebar-section h3 {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.sidebar-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-section li {
+  padding: 12px 14px;
+  border-radius: 16px;
+  cursor: pointer;
+  color: var(--text);
+  margin-bottom: 10px;
+  transition: background 0.2s ease;
+}
+
+.sidebar-section li:hover,
+.sidebar-section li.active {
+  background: var(--primary-soft);
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 24px;
+}
+
+.formula-list-panel,
+.formula-detail-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.formula-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.formula-card {
+  padding: 18px;
+  border-radius: 20px;
+  background: var(--surface-alt);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.formula-card:hover,
+.formula-card.active {
+  transform: translateY(-3px);
+  border-color: var(--primary-soft);
+}
+
+.formula-card h4 {
+  margin: 0 0 10px;
+}
+
+.formula-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.detail-card {
+  min-height: 500px;
+}
+
+.detail-card .placeholder {
+  color: var(--muted);
+  font-size: 1rem;
+  text-align: center;
+  padding: 160px 0;
+}
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.detail-header h2 {
+  margin: 0;
+}
+
+.detail-expression {
+  margin: 20px 0;
+  padding: 22px;
+  border-radius: 20px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  font-family: "Courier New", Courier, monospace;
+}
+
+.detail-copy,
+.card-actions button {
+  border: none;
+  background: var(--primary);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.detail-block {
+  margin-bottom: 18px;
+}
+
+.detail-block h3 {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.detail-block p,
+.detail-block li {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.detail-block ul {
+  padding-left: 20px;
+}
+
+.formulas-form {
+  display: grid;
+  gap: 14px;
+}
+
+.formulas-form label {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.formulas-form input,
+.formulas-form textarea,
+.formulas-form select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  color: var(--text);
+}
+
+.formulas-form button {
+  margin-top: 12px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  cursor: pointer;
+  border: none;
+  background: var(--primary);
+  color: white;
+}
+
+.result-panel {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 20px;
+  background: var(--primary-soft);
+}
+
+.result-panel strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.steps-list {
+  padding-left: 18px;
+}
+
+.dashboard-section {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  padding: 0 24px 24px;
+}
+
+.dashboard-card {
+  padding: 24px;
+  border-radius: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+@media screen and (max-width: 1080px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+  .formula-grid {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-section {
+    grid-template-columns: 1fr;
+  }
+}

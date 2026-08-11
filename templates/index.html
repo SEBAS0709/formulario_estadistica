@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StatFormula</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="brand">StatFormula</div>
+            <div class="sidebar-toggle" id="toggle-theme">Modo oscuro</div>
+            <div class="search-box">
+                <input type="search" id="searchInput" placeholder="Buscar fórmula..." />
+            </div>
+            <div class="sidebar-section">
+                <h3>Categorías</h3>
+                <ul id="categoryList"></ul>
+            </div>
+            <div class="sidebar-section">
+                <h3>Favoritos</h3>
+                <ul id="favoritesList"></ul>
+            </div>
+        </aside>
+        <main class="main-content">
+            <section class="formula-list-panel">
+                <div class="panel-header">
+                    <h2>Fórmulas</h2>
+                </div>
+                <div id="formulaList" class="formula-grid"></div>
+            </section>
+            <section class="formula-detail-panel">
+                <div class="card detail-card" id="formulaDetail">
+                    <div class="placeholder">Selecciona una fórmula para ver detalles</div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <section class="dashboard-section">
+        <div class="dashboard-card">
+            <h3>Estadísticas de uso</h3>
+            <canvas id="usageChart"></canvas>
+        </div>
+        <div class="dashboard-card">
+            <h3>Cálculos por día</h3>
+            <canvas id="historyChart"></canvas>
+        </div>
+    </section>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

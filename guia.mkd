@@ -1,0 +1,221 @@
+Desarrolla una aplicación web completa llamada **StatFormula**, orientada al aprendizaje y cálculo de fórmulas estadísticas.
+
+## Tecnologías obligatorias
+
+* Backend: Python + Flask
+* Arquitectura: Hexagonal (Ports & Adapters)
+* Paradigma: Programación Orientada a Objetos (POO)
+* Base de datos: SQLite
+* Frontend: HTML5, CSS3, JavaScript
+* Plantillas: Jinja2
+* ORM: SQLAlchemy
+* Diseño: Moderno, profesional, responsive y atractivo
+* Gráficos: Chart.js
+
+## Arquitectura del proyecto
+
+Implementa una arquitectura hexagonal organizada por funcionalidades:
+
+* formulas/
+* categories/
+* users/
+* statistics/
+* shared/
+
+Cada módulo debe contener:
+
+* domain/
+* application/
+* ports/
+* adapters/inbound/
+* adapters/outbound/
+
+El dominio no debe depender de Flask ni de SQLAlchemy.
+
+## Objetivo principal
+
+La aplicación debe permitir que el usuario seleccione una fórmula estadística y calcule resultados introduciendo sus propios valores.
+
+## Diseño de la interfaz
+
+Crear un diseño moderno con:
+
+### Panel izquierdo
+
+Mostrar una lista organizada de categorías:
+
+* Tendencia Central
+* Medidas de Dispersión
+* Medidas de Posición
+* Probabilidad
+* Distribución Binomial
+* Distribución Normal
+* Correlación y Regresión
+* Intervalos de Confianza
+* Pruebas de Hipótesis
+
+### Panel derecho
+
+Mostrar una lista de fórmulas disponibles.
+
+Ejemplos:
+
+* Media Aritmética
+* Mediana
+* Moda
+* Rango
+* Varianza
+* Desviación Estándar
+* Coeficiente de Variación
+* Cuartiles
+* Deciles
+* Percentiles
+* Probabilidad Simple
+* Probabilidad Condicional
+* Distribución Binomial
+* Distribución Poisson
+* Distribución Normal
+* Correlación de Pearson
+* Regresión Lineal
+* Intervalo de Confianza
+* Tamaño de Muestra
+* Prueba Z
+* Prueba T
+
+## Comportamiento requerido
+
+Cuando el usuario haga clic sobre una fórmula:
+
+1. Mostrar una tarjeta detallada.
+2. Mostrar el nombre de la fórmula.
+3. Mostrar la fórmula matemática visualmente.
+4. Mostrar una explicación sencilla.
+5. Mostrar para qué sirve.
+6. Mostrar el significado de cada variable.
+7. Generar automáticamente los campos necesarios para ingresar datos.
+8. Permitir que el usuario introduzca valores.
+9. Calcular automáticamente el resultado.
+10. Mostrar el procedimiento paso a paso.
+11. Mostrar el resultado final resaltado.
+
+## Ejemplo
+
+Si el usuario selecciona "Media Aritmética":
+
+Mostrar:
+
+x̄ = Σx / n
+
+Campos:
+
+* Valor 1
+* Valor 2
+* Valor 3
+* Valor n
+
+Botón:
+
+"Calcular"
+
+Resultado:
+
+Media = 25
+
+Procedimiento:
+
+(20 + 25 + 30) / 3 = 25
+
+## Funcionalidades adicionales
+
+### Historial
+
+Guardar:
+
+* Fórmula utilizada
+* Datos ingresados
+* Resultado
+* Fecha y hora
+
+### Favoritos
+
+Permitir marcar fórmulas favoritas.
+
+### Buscador
+
+Permitir buscar fórmulas por nombre.
+
+### Estadísticas de uso
+
+Mostrar:
+
+* Fórmula más utilizada
+* Total de cálculos realizados
+* Categoría más utilizada
+
+### Dashboard
+
+Crear gráficos usando Chart.js:
+
+* Fórmulas más usadas
+* Cálculos por día
+* Categorías más utilizadas
+
+## Base de datos SQLite
+
+Crear tablas:
+
+* formulas
+* categories
+* calculation_history
+* favorites
+* users
+
+## Programación Orientada a Objetos
+
+Implementar:
+
+* Clase Formula
+* Clase Category
+* Clase Calculator
+* Clase CalculationHistory
+* Clase User
+
+Aplicar:
+
+* Encapsulamiento
+* Herencia cuando sea necesaria
+* Polimorfismo
+* Abstracción
+
+## Experiencia de usuario
+
+* Modo oscuro y claro.
+* Diseño responsive.
+* Animaciones suaves.
+* Tarjetas modernas.
+* Iconos.
+* Sidebar colapsable.
+* Interfaz similar a aplicaciones SaaS profesionales.
+
+## Entregables
+
+Generar:
+
+* Estructura completa del proyecto.
+* Backend Flask funcional.
+* Frontend completo.
+* Modelos SQLAlchemy.
+* Casos de uso.
+* Puertos y adaptadores.
+* Rutas Flask.
+* Base de datos SQLite.
+* CSS moderno.
+* JavaScript funcional.
+* Datos de ejemplo precargados.
+* Proyecto completamente ejecutable sin errores.
+
+El sistema debe estar listo para abrirse con:
+
+python app.py
+
+y funcionar inmediatamente mostrando todas las fórmulas estadísticas con sus calculadoras dinámicas.
