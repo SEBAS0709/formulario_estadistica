@@ -12,6 +12,13 @@
         <aside class="sidebar">
             <div class="brand">StatFormula</div>
             <div class="sidebar-toggle" id="toggle-theme">Modo oscuro</div>
+            <div class="auth-links">
+                {% if session.get('username') %}
+                    <div class="user-info">Hola, {{ session.get('username') }} | <a href="{{ url_for('user.logout') }}">Cerrar sesión</a></div>
+                {% else %}
+                    <a href="{{ url_for('user.login_form') }}">Iniciar sesión</a> | <a href="{{ url_for('user.register_form') }}">Registrarse</a>
+                {% endif %}
+            </div>
             <div class="search-box">
                 <input type="search" id="searchInput" placeholder="Buscar fórmula..." />
             </div>

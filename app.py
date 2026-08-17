@@ -206,6 +206,19 @@ def seed_database():
                         setattr(existing, key, value)
             else:
                 db.session.add(FormulaModel(**formula))
+
+        # Crear usuario administrador por defecto si no existe (desarrollo local)
+        try:
+            from users.adapters.outbound.sqlalchemy_models import User as UserModel
+            admin = UserModel.query.filter_by(username="admin").first()
+            if not admin:
+                admin = UserModel(username="admin", role="admin")
+                admin.set_password("admin")
+                db.session.add(admin)
+        except Exception:
+            # Si no existe el módulo User aún, omitir (se crearán tablas luego)
+            pass
+
         db.session.commit()
 
 
