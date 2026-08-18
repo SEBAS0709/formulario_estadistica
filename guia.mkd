@@ -1,221 +1,377 @@
-Desarrolla una aplicación web completa llamada **StatFormula**, orientada al aprendizaje y cálculo de fórmulas estadísticas.
+ACTUALIZACIÓN DEL PROYECTO EXISTENTE – STATFORMULA
 
-## Tecnologías obligatorias
+Trabaja SOBRE MI PROYECTO ACTUAL EN VISUAL STUDIO CODE. NO LO RECONSTRUYAS DESDE CERO. Conserva todo lo que ya funciona y modifica/agrega únicamente lo necesario.
 
-* Backend: Python + Flask
-* Arquitectura: Hexagonal (Ports & Adapters)
-* Paradigma: Programación Orientada a Objetos (POO)
-* Base de datos: SQLite
-* Frontend: HTML5, CSS3, JavaScript
-* Plantillas: Jinja2
-* ORM: SQLAlchemy
-* Diseño: Moderno, profesional, responsive y atractivo
-* Gráficos: Chart.js
+OBJETIVO:
+Convertir StatFormula en una plataforma web educativa de estadística con usuarios, administrador, calculadoras dinámicas y procedimientos matemáticos paso a paso.
 
-## Arquitectura del proyecto
+TECNOLOGÍAS OBLIGATORIAS:
+- Python + Flask
+- Arquitectura Hexagonal (Ports & Adapters)
+- POO
+- SQLite
+- SQLAlchemy
+- HTML5 + CSS3 + JavaScript
+- Jinja2
+- Chart.js
 
-Implementa una arquitectura hexagonal organizada por funcionalidades:
+1. INICIO DE SESIÓN Y USUARIOS
 
-* formulas/
-* categories/
-* users/
-* statistics/
-* shared/
+Implementar autenticación con:
+- Registro de usuario.
+- Inicio de sesión.
+- Cierre de sesión.
+- Contraseñas almacenadas de forma segura mediante hash.
+- Sesiones de usuario.
+- Diferenciar roles: usuario y administrador.
 
-Cada módulo debe contener:
+USUARIO NORMAL:
+Después de iniciar sesión puede:
+- Ver categorías.
+- Ver todas las fórmulas disponibles.
+- Buscar fórmulas.
+- Seleccionar una fórmula.
+- Introducir los valores necesarios.
+- Calcular.
+- Ver la fórmula matemática.
+- Ver los valores reemplazados directamente dentro de la fórmula.
+- Ver el procedimiento paso a paso.
+- Ver el resultado final.
+- Guardar cálculos en su historial.
+- Marcar fórmulas como favoritas.
+- Consultar su historial desde cualquier dispositivo iniciando sesión con la misma cuenta.
 
-* domain/
-* application/
-* ports/
-* adapters/inbound/
-* adapters/outbound/
+2. ADMINISTRADOR
 
-El dominio no debe depender de Flask ni de SQLAlchemy.
+Crear un panel exclusivo para administrador.
 
-## Objetivo principal
+El administrador debe poder:
+- Registrar nuevas fórmulas.
+- Modificar fórmulas existentes.
+- Eliminar fórmulas.
+- Crear/modificar/eliminar categorías.
+- Ver fórmulas registradas.
+- Ver estadísticas generales de uso.
+- Consultar cantidad de cálculos realizados.
 
-La aplicación debe permitir que el usuario seleccione una fórmula estadística y calcule resultados introduciendo sus propios valores.
+Proteger las rutas administrativas para que un usuario normal NO pueda acceder.
 
-## Diseño de la interfaz
+3. CALCULADORAS DINÁMICAS
 
-Crear un diseño moderno con:
+IMPORTANTE: mejorar completamente la forma en que se realizan los cálculos.
 
-### Panel izquierdo
+Cuando el usuario seleccione una fórmula:
 
-Mostrar una lista organizada de categorías:
+Mostrar una tarjeta con:
+- Nombre.
+- Categoría.
+- Fórmula matemática visual.
+- Explicación sencilla.
+- Para qué sirve.
+- Significado de las variables.
+- Campos de entrada necesarios.
 
-* Tendencia Central
-* Medidas de Dispersión
-* Medidas de Posición
-* Probabilidad
-* Distribución Binomial
-* Distribución Normal
-* Correlación y Regresión
-* Intervalos de Confianza
-* Pruebas de Hipótesis
+Los valores ingresados deben reemplazarse VISUALMENTE dentro de la fórmula.
 
-### Panel derecho
+EJEMPLO:
 
-Mostrar una lista de fórmulas disponibles.
-
-Ejemplos:
-
-* Media Aritmética
-* Mediana
-* Moda
-* Rango
-* Varianza
-* Desviación Estándar
-* Coeficiente de Variación
-* Cuartiles
-* Deciles
-* Percentiles
-* Probabilidad Simple
-* Probabilidad Condicional
-* Distribución Binomial
-* Distribución Poisson
-* Distribución Normal
-* Correlación de Pearson
-* Regresión Lineal
-* Intervalo de Confianza
-* Tamaño de Muestra
-* Prueba Z
-* Prueba T
-
-## Comportamiento requerido
-
-Cuando el usuario haga clic sobre una fórmula:
-
-1. Mostrar una tarjeta detallada.
-2. Mostrar el nombre de la fórmula.
-3. Mostrar la fórmula matemática visualmente.
-4. Mostrar una explicación sencilla.
-5. Mostrar para qué sirve.
-6. Mostrar el significado de cada variable.
-7. Generar automáticamente los campos necesarios para ingresar datos.
-8. Permitir que el usuario introduzca valores.
-9. Calcular automáticamente el resultado.
-10. Mostrar el procedimiento paso a paso.
-11. Mostrar el resultado final resaltado.
-
-## Ejemplo
-
-Si el usuario selecciona "Media Aritmética":
-
-Mostrar:
-
+Fórmula original:
 x̄ = Σx / n
 
-Campos:
-
-* Valor 1
-* Valor 2
-* Valor 3
-* Valor n
-
-Botón:
-
-"Calcular"
-
-Resultado:
-
-Media = 25
-
-Procedimiento:
-
-(20 + 25 + 30) / 3 = 25
-
-## Funcionalidades adicionales
-
-### Historial
-
-Guardar:
-
-* Fórmula utilizada
-* Datos ingresados
-* Resultado
-* Fecha y hora
-
-### Favoritos
-
-Permitir marcar fórmulas favoritas.
-
-### Buscador
-
-Permitir buscar fórmulas por nombre.
-
-### Estadísticas de uso
+Datos:
+20, 25, 30
 
 Mostrar:
 
-* Fórmula más utilizada
-* Total de cálculos realizados
-* Categoría más utilizada
+x̄ = (20 + 25 + 30) / 3
 
-### Dashboard
+Después mostrar el procedimiento:
 
-Crear gráficos usando Chart.js:
+Paso 1:
+Σx = 20 + 25 + 30 = 75
 
-* Fórmulas más usadas
-* Cálculos por día
-* Categorías más utilizadas
+Paso 2:
+n = 3
 
-## Base de datos SQLite
+Paso 3:
+x̄ = 75 / 3
 
-Crear tablas:
+Resultado final:
+x̄ = 25
 
-* formulas
-* categories
-* calculation_history
-* favorites
-* users
+NO mostrar solamente:
+"Resultado = 25"
 
-## Programación Orientada a Objetos
+Debe mostrarse cómo se sustituyeron los valores y cómo se llegó al resultado.
+
+Aplicar este sistema a TODAS las fórmulas disponibles.
+
+Cada fórmula debe tener:
+- Expresión matemática.
+- Variables.
+- Inputs.
+- Sustitución de valores.
+- Procedimiento.
+- Resultado.
+
+4. FÓRMULAS
+
+Mantener y organizar como mínimo:
+
+Tendencia Central:
+- Media Aritmética
+- Mediana
+- Moda
+
+Dispersión:
+- Rango
+- Varianza
+- Desviación Estándar
+- Coeficiente de Variación
+
+Posición:
+- Cuartiles
+- Deciles
+- Percentiles
+
+Probabilidad:
+- Probabilidad Simple
+- Probabilidad Condicional
+
+Distribuciones:
+- Binomial
+- Poisson
+- Normal
+
+Correlación y Regresión:
+- Correlación de Pearson
+- Regresión Lineal
+
+Intervalos:
+- Intervalo de Confianza
+- Tamaño de Muestra
+
+Pruebas:
+- Prueba Z
+- Prueba T
+
+Las fórmulas deben estar almacenadas en la base de datos para que el administrador pueda gestionarlas.
+
+5. BASE DE DATOS
+
+Usar SQLite + SQLAlchemy.
+
+Tablas principales:
+- users
+- formulas
+- categories
+- calculation_history
+- favorites
+
+Relacionar correctamente las tablas.
+
+Los cálculos realizados deben quedar asociados al usuario que los realizó.
+
+6. HISTORIAL
+
+Cada cálculo debe guardar:
+- Usuario.
+- Fórmula.
+- Datos ingresados.
+- Procedimiento.
+- Resultado.
+- Fecha y hora.
+
+El usuario debe poder consultar su historial al iniciar sesión desde cualquier dispositivo.
+
+7. FAVORITOS
+
+Permitir:
+- Marcar fórmula como favorita.
+- Quitar de favoritos.
+- Ver únicamente las fórmulas favoritas.
+
+8. DISEÑO RESPONSIVE
+
+ACTUALIZAR EL DISEÑO COMPLETO.
+
+Debe funcionar correctamente en:
+- PC.
+- Laptop.
+- Tablet.
+- Teléfono.
+
+No permitir que las tarjetas, tablas, fórmulas o formularios se salgan de la pantalla.
 
 Implementar:
+- Sidebar responsive.
+- Sidebar colapsable.
+- Menú móvil.
+- Tarjetas adaptables.
+- Formularios adaptables.
+- Botones táctiles.
+- Tipografía responsive.
+- Espaciado adaptable.
+- Grid/Flexbox.
 
-* Clase Formula
-* Clase Category
-* Clase Calculator
-* Clase CalculationHistory
-* Clase User
+Diseño moderno estilo SaaS profesional.
+
+Agregar:
+- Modo claro.
+- Modo oscuro.
+- Animaciones suaves.
+- Hover.
+- Transiciones.
+- Iconos.
+- Estados de carga.
+- Mensajes de error y éxito.
+
+9. INTERFAZ
+
+Después del inicio de sesión mostrar un dashboard.
+
+Sidebar:
+- Dashboard
+- Fórmulas
+- Categorías
+- Favoritos
+- Historial
+- Estadísticas
+- Perfil
+- Cerrar sesión
+
+Para administrador agregar:
+- Administrar fórmulas
+- Administrar categorías
+- Usuarios
+- Estadísticas
+
+10. DASHBOARD
+
+Mostrar:
+- Total de cálculos.
+- Fórmula más utilizada.
+- Categoría más utilizada.
+- Fórmulas favoritas.
+- Historial reciente.
+
+Usar Chart.js para:
+- Fórmulas más utilizadas.
+- Cálculos por día.
+- Categorías más utilizadas.
+
+11. ARQUITECTURA HEXAGONAL
+
+Mantener esta estructura:
+
+formulas/
+categories/
+users/
+statistics/
+shared/
+
+Cada módulo debe tener:
+
+domain/
+application/
+ports/
+adapters/
+    inbound/
+    outbound/
+
+El dominio NO debe depender de Flask ni SQLAlchemy.
+
+Flask debe utilizarse en los adaptadores de entrada.
+
+SQLAlchemy debe utilizarse únicamente en los adaptadores de salida/persistencia.
+
+12. POO
+
+Mantener e implementar correctamente:
+- Formula
+- Category
+- Calculator
+- CalculationHistory
+- User
 
 Aplicar:
+- Encapsulamiento.
+- Abstracción.
+- Herencia cuando sea necesaria.
+- Polimorfismo.
+- Interfaces/puertos para desacoplar dependencias.
 
-* Encapsulamiento
-* Herencia cuando sea necesaria
-* Polimorfismo
-* Abstracción
+13. ADMINISTRACIÓN DE FÓRMULAS
 
-## Experiencia de usuario
+El formulario de administrador para crear una fórmula debe permitir definir:
 
-* Modo oscuro y claro.
-* Diseño responsive.
-* Animaciones suaves.
-* Tarjetas modernas.
-* Iconos.
-* Sidebar colapsable.
-* Interfaz similar a aplicaciones SaaS profesionales.
+- Nombre.
+- Categoría.
+- Descripción.
+- Fórmula matemática.
+- Variables.
+- Campos de entrada.
+- Tipo de dato de cada campo.
+- Fórmula de cálculo.
+- Procedimiento paso a paso.
+- Unidad del resultado.
 
-## Entregables
+Al editar una fórmula, los cambios deben reflejarse automáticamente en la calculadora.
 
-Generar:
+14. SEGURIDAD
 
-* Estructura completa del proyecto.
-* Backend Flask funcional.
-* Frontend completo.
-* Modelos SQLAlchemy.
-* Casos de uso.
-* Puertos y adaptadores.
-* Rutas Flask.
-* Base de datos SQLite.
-* CSS moderno.
-* JavaScript funcional.
-* Datos de ejemplo precargados.
-* Proyecto completamente ejecutable sin errores.
+Implementar:
+- Password hashing.
+- Control de sesiones.
+- Protección de rutas.
+- Control de roles.
+- Validación de formularios.
+- Validación de datos recibidos.
+- Evitar acceso al panel administrativo sin permisos.
 
-El sistema debe estar listo para abrirse con:
+15. IMPORTANTE SOBRE LA EXPERIENCIA
+
+La aplicación debe sentirse como una plataforma real de aprendizaje estadístico, no como un formulario básico.
+
+El usuario debe poder entender:
+1. Qué fórmula está usando.
+2. Qué significa cada variable.
+3. Qué valores debe ingresar.
+4. Cómo se sustituyen los valores.
+5. Cómo se desarrolla el cálculo.
+6. Cómo se obtiene el resultado final.
+
+16. EJECUCIÓN
+
+El proyecto debe continuar funcionando con:
 
 python app.py
 
-y funcionar inmediatamente mostrando todas las fórmulas estadísticas con sus calculadoras dinámicas.
+No cambiar innecesariamente la estructura existente.
+
+NO elimines funcionalidades que ya funcionan.
+
+NO generes archivos duplicados.
+
+NO agregues dependencias innecesarias.
+
+NO escribas explicaciones largas.
+
+Antes de modificar, revisa la estructura y archivos existentes. Después realiza únicamente los cambios necesarios.
+
+Si una funcionalidad ya existe, MEJÓRALA en lugar de crear otra versión.
+
+Al finalizar, verifica que:
+- No existan errores de imports.
+- Las rutas funcionen.
+- La base de datos funcione.
+- El login funcione.
+- Los roles funcionen.
+- El administrador pueda gestionar fórmulas.
+- Las calculadoras funcionen.
+- El procedimiento muestre sustitución de valores.
+- El diseño sea responsive.
+- python app.py inicie correctamente.
+
+IMPORTANTE PARA AHORRAR CRÉDITOS:
+No me envíes explicaciones, introducciones ni resúmenes innecesarios. Trabaja directamente sobre los archivos del proyecto y muestra únicamente los cambios necesarios o mensajes de error que requieran mi intervención.
